@@ -11,13 +11,13 @@ class Domaine extends Model
         'name',
     ];
 
-    public function categorie()
-    {
+    public function categorie() {
+
         return $this->belongsTo(Categorie::class);
     }
 
-    public function documents()
-    {
+    public function documents() {
+        
         return $this->hasMany(Document::class);
     }
 }
