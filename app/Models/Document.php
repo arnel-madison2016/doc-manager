@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+// cf. §4.5 du Dossier de conception détaillée. Stratégie Single Table Inheritance
+// (§3.1) : une unique table "documents" porte les deux spécialisations
+// TexteAdministratif / LivrePersonnel via la colonne discriminante "type".
 class Document extends Model
 {
     protected $fillable = [
