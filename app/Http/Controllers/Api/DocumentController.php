@@ -44,7 +44,9 @@ class DocumentController extends Controller
         $query = Document::query()
             ->with(['categorie', 'domaine', 'versionActive'])
             ->horsCorbeille()
-            ->when(! $user->isAdmin(), fn ($q) => $q->where('user_id', $user->id));
+            // Un utilisateur sans la permission "documents.voir-tous" (rôle
+            // administrateur) ne voit que ses propres documents (RG-01).
+            ->when($user->cannot('documents.voir-tous'), fn ($q) => $q->where('user_id', $user->id));
 
         $query->when(! empty($filtres['q']), function ($q) use ($filtres) {
             $terme = $filtres['q'];
@@ -94,11 +96,11 @@ class DocumentController extends Controller
             'description' => ['nullable', 'string'],
             'categorie_id' => ['required', 'integer', 'exists:categories,id'],
             'domaine_id' => ['nullable', 'integer', 'exists:domaines,id'],
-            'type' => ['required', 'in:texte_administratif,livre_personnel,autre'],
+            'type' => ['required', 'in:texte_administratif,livre_personnel'],
 
             // Champs spécifiques TexteAdministratif (RG-08 : le type ne change plus après création)
             'numero_acte' => ['required_if:type,texte_administratif', 'nullable', 'string', 'max:100'],
-            'type_acte' => ['required_if:type,texte_administratif', 'nullable', 'in:loi, ordonnance,decret,arrete,decision, circulaire'],
+            'type_acte' => ['required_if:type,texte_administratif', 'nullable', 'in:loi,ordonnance,decret,arrete,decision,circulaire'],
             'autorite_emettrice' => ['required_if:type,texte_administratif', 'nullable', 'string', 'max:255'],
             'date_signature' => ['required_if:type,texte_administratif', 'nullable', 'date'],
 
@@ -178,7 +180,7 @@ class DocumentController extends Controller
             'domaine_id' => ['sometimes', 'nullable', 'integer', 'exists:domaines,id'],
 
             'numero_acte' => ['sometimes', 'nullable', 'string', 'max:100'],
-            'type_acte' => ['sometimes', 'nullable', 'in:loi,ordonnance,decret,arrete,decision,circulaire'],
+            'type_acte' => ['sometimes', 'nullable', 'in:decret,arrete,decision'],
             'autorite_emettrice' => ['sometimes', 'nullable', 'string', 'max:255'],
             'date_signature' => ['sometimes', 'nullable', 'date'],
 
