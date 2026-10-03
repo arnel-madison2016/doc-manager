@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\JournalAction;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -18,8 +19,9 @@ class ProfileController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    
+    public function index() {
+
         //
     }
 
@@ -44,7 +46,7 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      */
     // PUT /api/v1/me — EF-02
-    public function update(Request $request, string $id) {
+    public function update(Request $request) {
 
         $data = $request->validate([
             'name' => ['sometimes', 'required', 'string', 'max:255'],
@@ -57,14 +59,6 @@ class ProfileController extends Controller
         $request->user()->update($data);
 
         return response()->json($request->user()->toApiArray());
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id) {
-
-        //
     }
 
     // PUT /api/v1/me/password
@@ -90,7 +84,7 @@ class ProfileController extends Controller
 
     // POST /api/v1/me/avatar — photo de profil optionnelle (§4.1 Cahier des charges)
     public function updateAvatar(Request $request) {
-
+        
         $data = $request->validate([
             'avatar' => ['required', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
         ]);
@@ -103,7 +97,6 @@ class ProfileController extends Controller
         }
 
         $chemin = $data['avatar']->store('avatars', 'public');
-
         $user->update(['avatar_path' => $chemin]);
 
         return response()->json($user->toApiArray());
@@ -124,7 +117,7 @@ class ProfileController extends Controller
 
     // GET /api/v1/me/journal — EF-12 : historique de connexion / actions personnelles
     public function journal(Request $request) {
-        
+
         $query = JournalAction::where('user_id', $request->user()->id)
             ->when($request->filled('document_id'), fn ($q) => $q->where('document_id', $request->query('document_id')))
             ->when($request->filled('action'), fn ($q) => $q->where('action', $request->query('action')))
@@ -141,5 +134,13 @@ class ProfileController extends Controller
                 'last_page' => $journal->lastPage(),
             ],
         ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id) {
+        
+        //
     }
 }
