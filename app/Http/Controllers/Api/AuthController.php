@@ -14,9 +14,12 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Illuminate\Validation\ValidationException;
 
-// Module "Gestion des profils utilisateurs" — §4.1 du Cahier des charges,
-// §2 de la Spécification API. Deux modes d'authentification Sanctum cohabitent
-// (RG-07, §1.3 Spécification API) :
+// Authentification pure — §4.1 du Cahier des charges, §2 de la Spécification API.
+// La consultation/modification du profil (nom, email, mot de passe, photo,
+// historique personnel) est traitée par ProfileController (séparation des
+// responsabilités : "s'authentifier" vs "gérer mon compte").
+//
+// Deux modes d'authentification Sanctum cohabitent (RG-07, §1.3 Spécification API) :
 //  - mode SPA (client web React/Inertia) : cookie de session, après appel préalable
 //    à GET /sanctum/csrf-cookie côté client (fourni nativement par Sanctum) ;
 //  - mode API token (client mobile) : jeton personnel renvoyé dans la réponse.
@@ -37,8 +40,13 @@ class AuthController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        // Rôle par défaut (§2.3 Cahier des charges) : l'élévation vers "administrateur" se fait
+        // ensuite via le module de supervision des comptes (UserController, cf. §4.1), jamais
+        // automatiquement à l'inscription.
+        $user->assignRole('utilisateur');
+
         return response()->json([
-            'user' => $user->only('id', 'nom', 'email', 'role'),
+            'user' => $user->toApiArray(),
         ], 201);
     }
 
@@ -53,9 +61,7 @@ class AuthController extends Controller
             'device_name' => ['sometimes', 'string', 'max:255'],
         ]);
 
-        // identifiants incorrects
         if (! Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
-
             throw ValidationException::withMessages([
                 'email' => ['Ces identifiants ne correspondent pas à nos enregistrements.'],
             ]);
@@ -68,11 +74,10 @@ class AuthController extends Controller
 
         // Client mobile : émission d'un jeton d'API personnel Sanctum (RG-07).
         if (! empty($data['device_name'])) {
-
             $token = $user->createToken($data['device_name']);
 
             return response()->json([
-                'user' => $user->only('id', 'nom', 'email', 'role'),
+                'user' => $user->toApiArray(),
                 'token' => $token->plainTextToken,
                 'token_type' => 'Bearer',
             ]);
@@ -83,7 +88,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         return response()->json([
-            'user' => $user->only('id', 'nom', 'email', 'role'),
+            'user' => $user->toApiArray(),
         ]);
     }
 
@@ -93,11 +98,9 @@ class AuthController extends Controller
         $user = $request->user();
 
         if ($token = $user->currentAccessToken()) {
-
             // Révocation du jeton courant uniquement (connexions multi-appareils, RG-07).
             $token->delete();
         } else {
-
             Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -109,10 +112,13 @@ class AuthController extends Controller
     // POST /api/v1/forgot-password
     public function forgotPassword(Request $request) {
 
-        $status = Password::sendResetLink($request->only('email'));
+        $data = $request->validate([
+            'email' => ['required', 'string', 'email'],
+        ]);
+
+        $status = Password::sendResetLink($data);
 
         if ($status !== Password::RESET_LINK_SENT) {
-
             throw ValidationException::withMessages([
                 'email' => [__($status)],
             ]);
@@ -138,55 +144,11 @@ class AuthController extends Controller
         );
 
         if ($status !== Password::PASSWORD_RESET) {
-
             throw ValidationException::withMessages([
                 'email' => [__($status)],
             ]);
         }
 
         return response()->json(['message' => __($status)]);
-    }
-
-    // GET /api/v1/me
-    public function me(Request $request) {
-
-        return response()->json($request->user()->only('id', 'nom', 'email', 'role'));
-    }
-
-    // PUT /api/v1/me/password
-    public function updateProfile(Request $request) {
-
-        $data = $request->validate([
-            'nom' => ['sometimes', 'required', 'string', 'max:255'],
-            'email' => [
-                'sometimes', 'required', 'string', 'email', 'max:255',
-                Rule::unique('users', 'email')->ignore($request->user()->id),
-            ],
-        ]);
-
-        $request->user()->update($data);
-
-        return response()->json($request->user()->only('id', 'nom', 'email', 'role'));
-    }
-
-    // PUT /api/v1/me/password
-    public function updatePassword(Request $request) {
-
-        $data = $request->validate([
-            'current_password' => ['required', 'string'],
-            'password' => ['required', 'confirmed', PasswordRule::min(8)->letters()->numbers()],
-        ]);
-
-        $user = $request->user();
-
-        if (! Hash::check($data['current_password'], $user->password)) {
-            throw ValidationException::withMessages([
-                'current_password' => ['Le mot de passe actuel est incorrect.'],
-            ]);
-        }
-
-        $user->update(['password' => Hash::make($data['password'])]);
-
-        return response()->json(['message' => 'Mot de passe mis à jour.']);
     }
 }
