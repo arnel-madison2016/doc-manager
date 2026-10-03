@@ -11,11 +11,13 @@ use Spatie\Permission\Models\Role;
 // prévus au §2.3 du Cahier des charges (Utilisateur, Administrateur).
 //
 // Permissions :
-//  - categories.gerer   : créer/modifier/supprimer une catégorie (§4.2, §3 Spéc. API)
-//  - domaines.gerer      : créer/modifier/supprimer un domaine (§4.2, §3 Spéc. API)
-//  - documents.voir-tous : consulter/agir sur les documents de tous les utilisateurs,
-//                          et pas uniquement les siens (RG-01 du Dossier de conception
-//                          détaillée — bypass réservé à l'administrateur)
+//  - categories.gerer    : créer/modifier/supprimer une catégorie (§4.2, §3 Spéc. API)
+//  - domaines.gerer       : créer/modifier/supprimer un domaine (§4.2, §3 Spéc. API)
+//  - documents.voir-tous  : consulter/agir sur les documents de tous les utilisateurs,
+//                           et pas uniquement les siens (RG-01 du Dossier de conception
+//                           détaillée — bypass réservé à l'administrateur)
+//  - utilisateurs.gerer   : superviser les comptes et attribuer les rôles applicatifs
+//
 class RolePermissionSeeder extends Seeder
 {
     /**
@@ -27,6 +29,7 @@ class RolePermissionSeeder extends Seeder
             'categories.gerer',
             'domaines.gerer',
             'documents.voir-tous',
+            'utilisateurs.gerer',
         ];
 
         foreach ($permissions as $permission) {
