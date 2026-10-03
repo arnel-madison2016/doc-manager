@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Domaine;
 use Illuminate\Http\Request;
 
+// §4.2 du Cahier des charges, §3 de la Spécification API. Écriture réservée à
+// l'administrateur via le middleware `permission:domaines.gerer` (routes/api.php),
+// porté par le rôle "administrateur" via spatie/laravel-permission.
+// Les règles de validation sont déclarées directement dans chaque méthode.
 class DomaineController extends Controller
 {
     /**
@@ -22,11 +26,9 @@ class DomaineController extends Controller
     // POST /api/v1/domaines
     public function store(Request $request)  {
 
-        $this->authorizeAdmin($request);
-
         $data = $request->validate([
             'categorie_id' => ['required', 'integer', 'exists:categories,id'],
-            'name' => ['required', 'string', 'max:150'],
+            'libelle' => ['required', 'string', 'max:150'],
         ]);
 
         $domaine = Domaine::create($data);
@@ -48,8 +50,6 @@ class DomaineController extends Controller
     // PUT /api/v1/domaines/{domaine}
     public function update(Request $request, Domaine $domaine) {
 
-        $this->authorizeAdmin($request);
-
         $data = $request->validate([
             'categorie_id' => ['sometimes', 'required', 'integer', 'exists:categories,id'],
             'name' => ['sometimes', 'required', 'string', 'max:150'],
@@ -66,8 +66,6 @@ class DomaineController extends Controller
     // DELETE /api/v1/domaines/{domaine}
     public function destroy(Request $request, Domaine $domaine) {
 
-        $this->authorizeAdmin($request);
-
         if ($domaine->documents()->exists()) {
             return response()->json([
                 'message' => 'Impossible de supprimer un domaine contenant des documents.',
@@ -77,10 +75,5 @@ class DomaineController extends Controller
         $domaine->delete();
 
         return response()->json(null, 204);
-    }
-
-    private function authorizeAdmin(Request $request): void {
-        
-        abort_unless($request->user()->isAdmin(), 403, 'Action réservée à l\'administrateur.');
     }
 }
