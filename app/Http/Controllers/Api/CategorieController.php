@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 // Module "Gestion des catégories et classification documentaire" — §4.2 du Cahier
-// des charges, §3 de la Spécification API. Écriture réservée à l'administrateur.
+// des charges, §3 de la Spécification API. Écriture réservée à l'administrateur :
+// l'autorisation n'est plus vérifiée ici mais par le middleware
+// `permission:categories.gerer` appliqué aux routes concernées (routes/api.php),
+// porté par le rôle "administrateur" via spatie/laravel-permission.
 // Les règles de validation sont déclarées directement dans chaque méthode.
 class CategorieController extends Controller
 {
@@ -28,11 +31,9 @@ class CategorieController extends Controller
     // POST /api/v1/categories
     public function store(Request $request) {
 
-        $this->authorizeAdmin($request);
-
         $data = $request->validate([
-            'nom' => ['required', 'string', 'max:100', 'unique:categories,nom'],
-            'type' => ['required', 'in:administratif,personnel,autre'],
+            'name' => ['required', 'string', 'max:100', 'unique:categories,name'],
+            'type' => ['required', 'in:administratif,personnel'],
         ]);
 
         $categorie = Categorie::create($data);
@@ -43,8 +44,8 @@ class CategorieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
+    public function show(string $id) {
+
         //
     }
 
@@ -53,8 +54,6 @@ class CategorieController extends Controller
      */
     // PUT /api/v1/categories/{categorie}
     public function update(Request $request, Categorie $categorie) {
-
-        $this->authorizeAdmin($request);
 
         $data = $request->validate([
             'nom' => [
@@ -75,8 +74,6 @@ class CategorieController extends Controller
     // DELETE /api/v1/categories/{categorie}
     public function destroy(Request $request, Categorie $categorie) {
 
-        $this->authorizeAdmin($request);
-
         // Suppression bloquée si des documents y sont encore rattachés.
         if ($categorie->documents()->exists()) {
             return response()->json([
@@ -93,12 +90,7 @@ class CategorieController extends Controller
     public function domaines(Categorie $categorie) {
 
         return response()->json([
-            'data' => $categorie->domaines()->orderBy('name')->get(),
+            'data' => $categorie->domaines()->orderBy('libelle')->get(),
         ]);
-    }
-
-    private function authorizeAdmin(Request $request): void {
-        
-        abort_unless($request->user()->isAdmin(), 403, 'Action réservée à l\'administrateur.');
     }
 }
