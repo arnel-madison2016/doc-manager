@@ -19,8 +19,8 @@ class DomaineFactory extends Factory
 {
     protected $model = Domaine::class;
 
-    private const LIBELLES_ADMINISTRATIF = ['Circulaire', 'Ordonnance', 'Instruction', 'Note de service'];
-    private const LIBELLES_PERSONNEL = ['Histoire', 'Economie', 'Sante', 'Cuisine', 'Voyage'];
+    private const LIBELLES_ADMINISTRATIF = ['Circulaire', 'Ordonnance', 'Instruction', 'Note de service', 'Decret', 'Loi'];
+    private const LIBELLES_PERSONNEL = ['Histoire', 'Economie', 'Sante', 'Cuisine', 'Voyage', 'Informatique & Reseaux'];
 
     public function definition(): array {
 
@@ -29,7 +29,7 @@ class DomaineFactory extends Factory
             // Pas de type de catégorie connu à ce stade (categorie_id n'est pas
             // encore résolu) : libellé pris sur l'ensemble des deux pools. Préférer
             // l'état pourCategorie() ci-dessous pour un résultat sémantiquement cohérent.
-            'libelle' => $this->faker->randomElement(
+            'name' => $this->faker->randomElement(
                 array_merge(self::LIBELLES_ADMINISTRATIF, self::LIBELLES_PERSONNEL)
             ),
         ];

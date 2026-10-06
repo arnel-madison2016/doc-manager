@@ -36,26 +36,26 @@ class CategorieDomaineSeeder extends Seeder
     private function seedTaxonomieReference(): void {
 
         $administratif = Categorie::firstOrCreate(
-            ['nom' => 'Textes administratifs'],
+            ['name' => 'Textes administratifs'],
             ['type' => 'administratif']
         );
 
         foreach (['Decret', 'Arrete', 'Decision'] as $libelle) {
             Domaine::firstOrCreate([
                 'categorie_id' => $administratif->id,
-                'libelle' => $libelle,
+                'name' => $libelle,
             ]);
         }
 
         $personnel = Categorie::firstOrCreate(
-            ['nom' => 'Livres personnels'],
+            ['name' => 'Livres personnels'],
             ['type' => 'personnel']
         );
 
         foreach (['Informatique', 'Agriculture', 'Politique'] as $libelle) {
             Domaine::firstOrCreate([
                 'categorie_id' => $personnel->id,
-                'libelle' => $libelle,
+                'name' => $libelle,
             ]);
         }
 
@@ -63,7 +63,7 @@ class CategorieDomaineSeeder extends Seeder
     }
 
     private function seedDonneesExemple(): void {
-        
+
         // Jusqu'à 5 catégories par type (limite des pools de noms plausibles des
         // factories, via faker->unique() — cf. CategorieFactory).
         Categorie::factory()->administratif()->count(3)->create()
