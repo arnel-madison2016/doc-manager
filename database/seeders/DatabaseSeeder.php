@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         // Appel de tous les autres seeders
         $this->call([
             RolePermissionSeeder::class,
+            CategorieDomaineSeeder::class,
         ]);
     }
 }

@@ -61,4 +61,9 @@ class CategorieFactory extends Factory
             'type' => 'personnel',
         ]);
     }
+
+    private function pool(string $type): array {
+        
+        return $type === 'administratif' ? self::NOMS_ADMINISTRATIF : self::NOMS_PERSONNEL;
+    }
 }
