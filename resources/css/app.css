@@ -1,9 +1,39 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.{js,jsx}';
+ 
+/* Thème sombre piloté par l'attribut data-theme posé sur <html> (ThemeProvider). */
+@custom-variant dark (&:where([data-theme='sombre'], [data-theme='sombre'] *));
+ 
+@theme static {
+    --font-sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, monospace;
+ 
+    --color-primary-50: #eff6ff;   --color-primary-500: #2e6be6;
+    --color-primary-600: #1f54c4;  --color-primary-700: #163e92;
+    --color-primary-text: #1f54c4;
+ 
+    --color-surface: #ffffff;      --color-surface-alt: #f3f6fb;
+    --color-ink: #102a4c;          --color-ink-muted: #5b6b82;
+    --color-border: #d7dee9;
+ 
+    --color-success: #16a34a;  --color-success-soft: #dcfce7;  --color-success-text: #166534;
+    --color-warning: #d97706;  --color-warning-soft: #fef3c7;  --color-warning-text: #92400e;
+    --color-danger:  #dc2626;  --color-danger-soft:  #fee2e2;  --color-danger-text:  #991b1b;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+:root[data-theme='sombre'] {
+    --color-primary-50: #14264a;   --color-primary-text: #8db2ff;
+    --color-surface: #0f1a2b;      --color-surface-alt: #0a1220;
+    --color-ink: #e7ecf5;          --color-ink-muted: #90a1b9;   --color-border: #223250;
+    --color-success-soft: #0f2e1d; --color-success-text: #4ade80;
+    --color-warning-soft: #3a2a0a; --color-warning-text: #fbbf24;
+    --color-danger-soft:  #3b1212; --color-danger-text:  #f87171;
+}
+
+@layer base {
+    html { font-size: 14px; }
+    body { @apply bg-surface-alt font-sans text-ink antialiased; }
+    :focus-visible { outline: 2px solid var(--color-primary-500); outline-offset: 2px; }
 }

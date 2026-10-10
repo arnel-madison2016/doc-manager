@@ -30,6 +30,8 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar_path',
+        'preferences', 
+        'last_login_at'
     ];
 
     protected $hidden = [
@@ -41,7 +43,15 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'preferences' => 'array',
+            'last_login_at' => 'datetime',
         ];
+    }
+
+    // Lecture d'une préférence avec valeur de repli
+    public function preference(string $cle, mixed $defaut = null): mixed {
+
+        return data_get($this->preferences, $cle, $defaut);
     }
 
     // Conservée comme raccourci de lisibilité dans les contrôleurs/policies ;
@@ -80,6 +90,7 @@ class User extends Authenticatable
             ...$this->only('id', 'nom', 'email'),
             'avatar_url' => $this->avatarUrl(),
             'roles' => $this->getRoleNames(),
+            'preferences' => $this->preferences ?? (object) [],
         ];
     }
 }
