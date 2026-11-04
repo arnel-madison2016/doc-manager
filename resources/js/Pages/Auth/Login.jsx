@@ -2,7 +2,7 @@ import { Link, useForm } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import AuthLayout from '@/Layouts/AuthLayout';
 import Input from '@/Components/ui/Input';
-import {Button} from '@/Components/ui/Button';
+import Button from '@/Components/ui/Button';
 
 export default function Login() {
     const { t } = useTranslation();
