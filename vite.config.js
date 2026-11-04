@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite'; // 1. Importer le plugin
+import path from 'path';
 
 export default defineConfig({
     plugins: [
@@ -13,4 +14,10 @@ export default defineConfig({
         react(),
         
     ],
+    resolve: {
+        alias: {
+            // Remplacement de __dirname par import.meta.dirname
+            '@': path.resolve(import.meta.dirname, './resources/js'),
+        },
+    },
 });

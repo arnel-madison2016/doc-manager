@@ -18,14 +18,15 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'guest',
+            'email' => 'guest@example.com',
         ]);
 
         // Appel de tous les autres seeders
         $this->call([
             RolePermissionSeeder::class,
             CategorieDomaineSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }

@@ -43,4 +43,9 @@ class JournalAction extends Model
             'created_at' => now(),
         ]);
     }
+
+    public function scopePlusAncienQue($q, int $jours) {
+
+        return $q->where('created_at', '<', now()->subDays($jours));
+    }
 }

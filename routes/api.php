@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\DomaineController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/user', function (Request $request) {
@@ -29,8 +30,14 @@ Route::prefix('v1')->name('v1.')->group(function () {
         Route::post('register', [AuthController::class, 'register'])->name('register');
         Route::post('login', [AuthController::class, 'login'])->name('login');
         Route::post('forgot-password', [AuthController::class, 'forgotPassword'])->name('password.forgot');
-        Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('password.reset');
+        Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('password.store');
+
+        Route::put('me/preferences', [ProfileController::class, 'updatePreferences'])->name('profile.preferences.update');
+        Route::get('me/tokens', [ProfileController::class, 'tokens'])->name('profile.tokens.index');
+        Route::delete('me/tokens/{token}', [ProfileController::class, 'destroyToken'])->name('profile.tokens.destroy');
     });
+
+    Route::get('app-settings', [SettingsController::class, 'publicSettings'])->name('settings.public');
 
     // --- Routes protégées (cookie de session SPA ou jeton Bearer Sanctum) ---
     Route::middleware('auth:sanctum')->group(function () {
@@ -103,6 +110,11 @@ Route::prefix('v1')->name('v1.')->group(function () {
             Route::get('users', [UserController::class, 'index'])->name('index');
             Route::get('users/{user}', [UserController::class, 'show'])->name('show');
             Route::put('users/{user}/role', [UserController::class, 'updateRole'])->name('role.update');
+        });
+
+        Route::middleware('permission:parametres.gerer')->prefix('admin')->name('admin.settings.')->group(function () {
+            Route::get('settings', [SettingsController::class, 'show'])->name('show');
+            Route::put('settings', [SettingsController::class, 'update'])->name('update');
         });
     });
 });

@@ -1,0 +1,513 @@
+{
+  "app": {
+    "name": "GEDoc",
+    "tagline": "Votre documentation, centralisée.",
+    "skip": "Aller au contenu"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "search": "Rechercher",
+    "loading": "Chargement…",
+    "empty": "Aucun résultat.",
+    "close": "Fermer",
+    "actions": "Actions",
+    "previous": "Page précédente",
+    "next": "Page suivante",
+    "page": "Page",
+    "reset": "Réinitialiser",
+    "select": "Sélectionner..."
+  },
+  "nav": {
+    "main": "Navigation principale",
+    "menu": "Ouvrir le menu",
+    "dashboard": "Tableau de bord",
+    "documents": "Documents",
+    "categories": "Catégories",
+    "trash": "Corbeille",
+    "journal": "Journal",
+    "admin": "Administration"
+  },
+  "user": {
+    "profile": "Mon profil",
+    "settings": "Paramètres",
+    "logout": "Se déconnecter",
+    "account": "Compte"
+  },
+  "theme": {
+    "label": "Thème",
+    "switch": "Changer de thème",
+    "clair": "Clair",
+    "sombre": "Sombre",
+    "auto": "Auto"
+  },
+  "language": {
+    "label": "Langue"
+  },
+  "search": {
+    "placeholder": "Rechercher un document…"
+  },
+  "auth": {
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "passwordConfirm": "Confirmer le mot de passe",
+    "passwordHint": "8 caractères minimum, avec des lettres et des chiffres.",
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Accédez à votre documentation.",
+      "remember": "Se souvenir de moi",
+      "submit": "Se connecter",
+      "forgot": "Mot de passe oublié ?",
+      "noAccount": "Pas encore de compte ?",
+      "register": "Créer un compte"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "subtitle": "Quelques secondes suffisent.",
+      "name": "Nom",
+      "submit": "Créer mon compte",
+      "hasAccount": "Déjà inscrit ?",
+      "login": "Se connecter"
+    },
+    "forgot": {
+      "title": "Mot de passe oublié",
+      "subtitle": "Nous vous envoyons un lien de réinitialisation.",
+      "submit": "Envoyer le lien",
+      "back": "Retour à la connexion"
+    },
+    "reset": {
+      "title": "Nouveau mot de passe",
+      "subtitle": "Choisissez un nouveau mot de passe.",
+      "submit": "Réinitialiser"
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bonjour, {{name}}",
+    "subtitle": "Que souhaitez-vous faire aujourd'hui ?",
+    "addDocument": "Ajouter un document",
+    "addDocumentHint": "Déposer un PDF et renseigner ses métadonnées",
+    "searchDocuments": "Rechercher un document",
+    "searchHint": "Par titre, catégorie, auteur ou date",
+    "browseCategories": "Parcourir les catégories",
+    "browseHint": "Textes administratifs et livres",
+    "recent": "Documents récents",
+    "seeAll": "Tout voir",
+    "noDocs": "Aucun document pour l'instant.",
+    "stats": {
+      "documents": "Documents",
+      "acts": "Textes administratifs",
+      "books": "Livres personnels",
+      "trash": "Dans la corbeille"
+    }
+  },
+  "documents": {
+    "statut": {
+      "brouillon": "Brouillon",
+      "publie": "Publié",
+      "corbeille": "Corbeille"
+    },
+    "title": "Documents",
+    "add": "Ajouter un document",
+    "count_one": "{{count}} document",
+    "count_other": "{{count}} documents",
+    "empty": "Aucun document pour l'instant.",
+    "emptyHint": "Déposez votre premier PDF pour commencer.",
+    "emptyFiltered": "Aucun résultat",
+    "emptyFilteredHint": "Essayez d'élargir ou de réinitialiser vos filtres.",
+    "view": {
+      "label": "Mode d'affichage",
+      "tableau": "Tableau",
+      "cartes": "Cartes"
+    },
+    "type": {
+      "texte_administratif": "Texte administratif",
+      "livre_personnel": "Livre personnel"      
+    },
+    "types": {
+      "administratif": "Administratif",
+      "personnel": "Personnel",
+      "autre": "Autre"
+    },
+    "typeActe": {
+      "loi": "Loi",
+      "decret": "Décret",
+      "arrete": "Arrêté",
+      "decision": "Décision"
+    },
+    "sort": {
+      "date_desc": "Plus récents",
+      "date_asc": "Plus anciens",
+      "titre_asc": "Titre A → Z",
+      "titre_desc": "Titre Z → A"
+    },
+    "columns": {
+      "title": "Titre",
+      "category": "Catégorie",
+      "date": "Date",
+      "status": "Statut",
+      "version": "Version",
+      "taille": "Taille"
+    },
+    "filters": {
+      "label": "Recherche de documents",
+      "search": "Recherche",
+      "search_placeholder": "Rechercher un document par titre...",
+      "placeholder": "Titre, auteur, numéro d'acte…",
+      "type": "Type",
+      "category": "Catégorie",
+      "domain": "Domaine",
+      "from": "Du",
+      "to": "Au",
+      "sort": "Tri",
+      "apply": "Appliquer",
+      "reset": "Réinitialiser",
+      "all": "Tous",
+      "allF": "Toutes",
+      "all_types": "Tous les types de documents"
+    },
+    "fields": {
+      "title": "Titre",
+      "description": "Description",
+      "category": "Catégorie",
+      "domain": "Domaine",
+      "type": "Type",
+      "numeroActe": "Numéro de l'acte",
+      "typeActe": "Nature de l'acte",
+      "authority": "Autorité émettrice",
+      "signatureDate": "Date de signature",
+      "author": "Auteur",
+      "publisher": "Éditeur",
+      "isbn": "ISBN",
+      "file": "Fichier PDF",
+      "addedOn": "Ajouté le",
+      "size": "Taille",
+      "hash": "Empreinte SHA-256",
+      "activeVersion": "Version active"
+    },
+    "form": {
+      "title": "Titre du document",
+      "type": "Type de document",
+      "category": "Catégorie",
+      "domain": "Domaine"
+    },
+    "create": {
+      "title": "Ajouter un document",
+      "subtitle": "Déposez un PDF et renseignez ses métadonnées.",
+      "typeLabel": "Type de document",
+      "typeHint": {
+        "texte_administratif": "Loi, Décret, arrêté, décision…",
+        "livre_personnel": "Ouvrage de votre bibliothèque"
+      },
+      "general": "Informations générales",
+      "actInfo": "Informations de l'acte",
+      "bookInfo": "Informations de l'ouvrage",
+      "selectCategory": "Choisir une catégorie",
+      "noDomain": "Aucun domaine",
+      "selectTypeActe": "Choisir la nature de l'acte",
+      "submit": "Enregistrer le document"
+    },
+    "edit": {
+      "title": "Modifier les métadonnées",
+      "typeFixed": "Le type d'un document ne peut pas être modifié.",
+      "submit": "Enregistrer les modifications"
+    },
+    "show": {
+      "download": "Télécharger",
+      "edit": "Modifier",
+      "versions": "Versions",
+      "delete": "Mettre à la corbeille",
+      "metadata": "Informations",
+      "history": "Historique des versions",
+      "backToList": "Retour à la liste",
+      "inTrash": "Ce document est dans la corbeille. Il sera supprimé définitivement après {{days}} jours."
+    },
+    "delete": {
+      "title": "Mettre à la corbeille ?",
+      "message": "« {{titre}} » sera déplacé dans la corbeille. Vous pourrez le restaurer pendant {{days}} jours.",
+      "confirm": "Mettre à la corbeille"
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "tabsLabel": "Sections d'administration",
+    "tabs": {
+      "overview": "Vue d'ensemble",
+      "users": "Utilisateurs",
+      "categories": "Catégories & domaines",
+      "appearance": "Apparence",
+      "language": "Langue",
+      "documents": "Documents & stockage",
+      "security": "Sécurité & conformité"
+    },
+    "overview": {
+      "users": "Utilisateurs",
+      "documents": "Documents",
+      "trash": "En corbeille",
+      "storage": "Stockage utilisé",
+      "storageHint": "Toutes versions confondues",
+      "recent": "Dernières actions",
+      "purgeSoon_one": "{{count}} document sera purgé définitivement dans moins de 7 jours.",
+      "purgeSoon_other": "{{count}} documents seront purgés définitivement dans moins de 7 jours."
+    },
+    "users": {
+      "user": "Utilisateur",
+      "role": "Rôle",
+      "lastLogin": "Dernière connexion",
+      "never": "Jamais",
+      "export": "Exporter les données",
+      "create": "Créer un compte",
+      "createTitle": "Créer un compte",
+      "createHint": "Un lien permettant de définir son mot de passe sera envoyé à cette adresse.",
+      "searchPlaceholder": "Nom ou adresse e-mail",
+      "allRoles": "Tous les rôles",
+      "selfRole": "Vous ne pouvez pas modifier votre propre rôle.",
+      "confirmRoleTitle": "Modifier le rôle ?",
+      "confirmRoleMessage": "Le rôle de {{name}} deviendra « {{role}} »."
+    },
+    "appearance": {
+      "themeTitle": "Thème",
+      "themeDescription": "Apparence proposée aux utilisateurs.",
+      "themeDefault": "Thème par défaut",
+      "themeForce": "Imposer ce thème à tous",
+      "themeForceHint": "Masque le sélecteur de thème : plus aucun choix personnel.",
+      "color": "Teinte d'accent",
+      "previewTitle": "Aperçu",
+      "previewText": "Voici le rendu des boutons, badges et liens.",
+      "identityTitle": "Identité",
+      "appName": "Nom de l'application",
+      "logo": "Logo",
+      "noLogo": "Aucun logo",
+      "logoChoose": "Choisir un logo",
+      "logoRemove": "Retirer",
+      "logoHint": "PNG, JPG ou WebP, 1 Mo maximum.",
+      "logoInvalid": "Logo invalide : PNG, JPG ou WebP, 1 Mo maximum.",
+      "bannerTitle": "Bandeau d'information",
+      "bannerDescription": "Message affiché en haut de toutes les pages (maintenance, annonce).",
+      "bannerEnable": "Afficher le bandeau",
+      "bannerMessage": "Message"
+    },
+    "language": {
+      "title": "Langues",
+      "description": "Langues proposées dans l'application.",
+      "available": "Langues disponibles",
+      "default": "Langue par défaut",
+      "defaultHint": "Appliquée aux visiteurs et aux utilisateurs sans préférence."
+    },
+    "documents": {
+      "storageTitle": "Stockage et corbeille",
+      "retention": "Rétention de la corbeille (jours)",
+      "retentionHint": "Délai avant la suppression définitive d'un document.",
+      "uploadMax": "Taille maximale d'un PDF (Mo)",
+      "uploadMaxHint": "Doit rester inférieure aux limites PHP du serveur.",
+      "phpLimit": "Limite PHP du serveur : {{limit}} Mo.",
+      "duplicates": "Détection de doublons",
+      "duplicatesHint": "Comportement lorsqu'un PDF identique est déjà enregistré.",
+      "duplicatePolicy": {
+        "refuser": "Refuser l'ajout",
+        "proposer_fusion": "Proposer la fusion (bientôt disponible)"
+      },
+      "displayTitle": "Affichage par défaut",
+      "defaultView": "Vue de la liste des documents",
+      "defaultPerPage": "Lignes par page"
+    },
+    "security": {
+      "accessTitle": "Accès",
+      "registration": "Inscription ouverte",
+      "registrationHint": "Si désactivée, seuls les administrateurs créent des comptes.",
+      "privacyTitle": "Données et conformité",
+      "journalRetention": "Conservation du journal (jours)",
+      "journalRetentionHint": "Les entrées plus anciennes sont supprimées automatiquement.",
+      "gdprReminder": "Chaque utilisateur peut exporter ou supprimer ses données depuis son profil (RGPD)."
+    }
+  },
+  "errors": {
+    "generic": "Une erreur est survenue.",
+    "home": "Retour à l'accueil",
+    "403": {
+      "title": "Accès refusé",
+      "message": "Vous n'avez pas l'autorisation d'accéder à cette page."
+    },
+    "404": {
+      "title": "Page introuvable",
+      "message": "La page demandée n'existe pas ou a été déplacée."
+    },
+    "500": {
+      "title": "Erreur du serveur",
+      "message": "Une erreur inattendue est survenue. Réessayez dans un instant."
+    },
+    "503": {
+      "title": "Service indisponible",
+      "message": "L'application est momentanément indisponible (maintenance)."
+    }
+  },
+  "roles": {
+    "utilisateur": "Utilisateur",
+    "administrateur": "Administrateur"
+  },
+  "dropzone": {
+    "prompt": "Glissez un PDF ici ou",
+    "browse": "parcourez vos fichiers",
+    "constraint": "PDF uniquement, {{max}} Mo maximum",
+    "remove": "Retirer le fichier",
+    "notPdf": "Le fichier doit être un PDF.",
+    "tooLarge": "Le fichier dépasse {{max}} Mo.",
+    "uploading": "Envoi en cours… {{percent}} %"
+  },
+  "duplicate": {
+    "title": "Ce document existe déjà",
+    "message": "Un fichier identique est déjà enregistré : « {{titre}} ».",
+    "open": "Ouvrir le document existant"
+  },
+  "viewer": {
+    "page": "Page",
+    "of": "sur {{total}}",
+    "prev": "Page précédente",
+    "next": "Page suivante",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "fit": "Ajuster à la largeur",
+    "loading": "Chargement du document…",
+    "error": "Impossible d'afficher ce PDF.",
+    "openDirect": "Ouvrir dans un nouvel onglet"
+  },
+  "versions": {
+    "title": "Versions de « {{titre}} »",
+    "upload": "Déposer une nouvelle version",
+    "uploadHint": "L'ancienne version est archivée, jamais supprimée.",
+    "submit": "Déposer la version",
+    "number": "N°",
+    "date": "Déposée le",
+    "size": "Taille",
+    "active": "Active",
+    "archived": "Archivée",
+    "view": "Consulter",
+    "restore": "Restaurer",
+    "restoreTitle": "Restaurer la version {{n}} ?",
+    "restoreMessage": "Cette version deviendra la version active du document.",
+    "confirmRestore": "Restaurer",
+    "back": "Retour au document"
+  },
+  "trash": {
+    "title": "Corbeille",
+    "empty": "La corbeille est vide.",
+    "deletedOn": "Supprimé le",
+    "purge": "Purge définitive",
+    "remaining_one": "dans {{count}} jour",
+    "remaining_other": "dans {{count}} jours",
+    "restore": "Restaurer",
+    "info": "Les documents de la corbeille sont supprimés définitivement après {{days}} jours."
+  },
+  "categories": {
+    "title": "Catégories et domaines",
+    "subtitle": "Classement de votre documentation.",
+    "newCategory": "Nouvelle catégorie",
+    "editCategory": "Modifier la catégorie",
+    "newDomain": "Nouveau domaine",
+    "editDomain": "Modifier le domaine",
+    "addDomain": "Ajouter un domaine",
+    "noDomains": "Aucun domaine.",
+    "documentsCount": "{{count}} document{{count > 1 ? 's' : ''}}",
+    "documentsCount_one": "{{count}} document",
+    "documentsCount_other": "{{count}} documents",
+    "notEmpty": "Suppression impossible : cette catégorie contient des documents.",
+    "domainNotEmpty": "Suppression impossible : ce domaine contient des documents.",
+    "empty": "Aucune catégorie.",
+    "emptyHint": "Un administrateur doit d'abord créer des catégories.",
+    "emptyHintAdmin": "Créez votre première catégorie pour classer vos documents.",
+    "deleteTitle": "Supprimer cet élément ?",
+    "deleteMessage": "« {{name}} » sera supprimé définitivement.",
+    "type": {
+      "administratif": "Administratif",
+      "personnel": "Personnel",
+      "autre": "Autre"
+    },
+    "fields": {
+      "name": "Nom",
+      "type": "Type",
+      "label": "Libellé",
+      "category": "Catégorie"
+    }
+  },
+  "profile": {
+    "title": "Mon profil",
+    "avatar": {
+      "title": "Photo de profil",
+      "select": "Sélectionnez",
+      "choose": "Choisir une photo",
+      "remove": "Supprimer",
+      "hint": "JPG, PNG ou WebP, {{max}} Mo maximum.",
+      "invalid": "Image invalide : JPG, PNG ou WebP, {{max}} Mo maximum."
+    },
+    "info": {
+      "title": "Informations",
+      "description": "Votre nom et votre adresse e-mail.",
+      "roles": "Rôle :"
+    },
+    "password": {
+      "title": "Mot de passe",
+      "description": "Choisissez un mot de passe robuste, que vous n'utilisez nulle part ailleurs.",
+      "current": "Mot de passe actuel",
+      "revoke": "Déconnecter mes appareils mobiles",
+      "revokeHint": "Révoque tous les jetons d'accès de l'application mobile.",
+      "submit": "Changer le mot de passe"
+    },
+    "devices": {
+      "title": "Appareils connectés",
+      "description": "Applications mobiles autorisées à accéder à votre compte.",
+      "empty": "Aucun appareil connecté.",
+      "lastUsed": "Dernière utilisation : {{date}}",
+      "neverUsed": "Jamais utilisé",
+      "revoke": "Déconnecter",
+      "confirmTitle": "Déconnecter cet appareil ?",
+      "confirmMessage": "« {{name}} » n'aura plus accès à votre compte."
+    },
+    "data": {
+      "title": "Mes données",
+      "description": "Exportez ou supprimez vos données personnelles.",
+      "exportTitle": "Exporter mes données",
+      "exportHint": "Fichier JSON : profil, métadonnées des documents et journal.",
+      "export": "Exporter",
+      "deleteTitle": "Supprimer mon compte",
+      "deleteHint": "Supprime définitivement votre compte, vos documents et votre historique.",
+      "delete": "Supprimer mon compte",
+      "confirmTitle": "Supprimer définitivement votre compte ?",
+      "confirmWarning": "Cette action est irréversible : tous vos documents, versions et fichiers seront supprimés.",
+      "lastAdmin": "Vous êtes le dernier administrateur : désignez-en un autre avant de supprimer ce compte.",
+      "confirmPassword": "Confirmez avec votre mot de passe"
+    }
+  },
+  "settings": {
+    "title": "Préférences",
+    "description": "Apparence et affichage, propres à votre compte.",
+    "themeForced": "Le thème est imposé par l'administrateur.",
+    "perPage": "Lignes par page",
+    "documentsView": "Vue des documents"
+  },
+  "journal": {
+    "title": "Journal d'activité",
+    "empty": "Aucune activité enregistrée.",
+    "columns": {
+      "date": "Date",
+      "action": "Action",
+      "document": "Document"
+    },
+    "filters": {
+      "action": "Action",
+      "allActions": "Toutes les actions",
+      "document": "N° de document"
+    },
+    "actions": {
+      "connexion": "Connexion",
+      "ajout": "Ajout",
+      "consultation": "Consultation",
+      "telechargement": "Téléchargement",
+      "mise_a_jour": "Mise à jour",
+      "suppression": "Suppression"
+    }
+  }
+}

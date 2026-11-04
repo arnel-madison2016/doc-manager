@@ -30,6 +30,7 @@ class RolePermissionSeeder extends Seeder
             'domaines.gerer',
             'documents.voir-tous',
             'utilisateurs.gerer',
+            'parametres.gerer',
         ];
 
         foreach ($permissions as $permission) {
@@ -42,6 +43,9 @@ class RolePermissionSeeder extends Seeder
 
         $administrateur = Role::firstOrCreate(['name' => 'administrateur']);
         $administrateur->syncPermissions($permissions);
+
+        // $adminRole = Role::findByName('administrateur');
+        // $adminRole->givePermissionTo(['parametres.gerer']);
 
         $this->command?->info('Rôles et permissions GEDoc initialisés : utilisateur, administrateur.');
     }

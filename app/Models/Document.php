@@ -81,4 +81,9 @@ class Document extends Model
 
         return $query->where('statut', '!=', 'corbeille');
     }
+
+    public function scopeCorbeilleExpiree($q, int $jours) {
+
+        return $q->where('statut', 'corbeille')->where('corbeille_at', '<', now()->subDays($jours));
+    }
 }

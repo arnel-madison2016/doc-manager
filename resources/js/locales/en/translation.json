@@ -1,0 +1,493 @@
+{
+  "app": {
+    "name": "GEDoc",
+    "tagline": "Your documentation, centralised.",
+    "skip": "Skip to content"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "search": "Search",
+    "loading": "Loading…",
+    "empty": "No results.",
+    "close": "Close",
+    "actions": "Actions",
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page"
+  },
+  "nav": {
+    "main": "Main navigation",
+    "menu": "Open menu",
+    "dashboard": "Dashboard",
+    "documents": "Documents",
+    "categories": "Categories",
+    "trash": "Trash",
+    "journal": "Activity log",
+    "admin": "Administration"
+  },
+  "user": {
+    "profile": "My profile",
+    "settings": "Settings",
+    "logout": "Sign out",
+    "account": "Account"
+  },
+  "theme": {
+    "label": "Theme",
+    "switch": "Switch theme",
+    "clair": "Light",
+    "sombre": "Dark",
+    "auto": "Auto"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "search": {
+    "placeholder": "Search a document…"
+  },
+  "auth": {
+    "email": "Email address",
+    "password": "Password",
+    "passwordConfirm": "Confirm password",
+    "passwordHint": "At least 8 characters, with letters and numbers.",
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Access your documentation.",
+      "remember": "Remember me",
+      "submit": "Sign in",
+      "forgot": "Forgot your password?",
+      "noAccount": "No account yet?",
+      "register": "Create an account"
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "It only takes a few seconds.",
+      "name": "Name",
+      "submit": "Create my account",
+      "hasAccount": "Already registered?",
+      "login": "Sign in"
+    },
+    "forgot": {
+      "title": "Forgot your password",
+      "subtitle": "We'll email you a reset link.",
+      "submit": "Send the link",
+      "back": "Back to sign in"
+    },
+    "reset": {
+      "title": "New password",
+      "subtitle": "Choose a new password.",
+      "submit": "Reset password"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Hello, {{name}}",
+    "subtitle": "What would you like to do today?",
+    "addDocument": "Add a document",
+    "addDocumentHint": "Upload a PDF and fill in its metadata",
+    "searchDocuments": "Search a document",
+    "searchHint": "By title, category, author or date",
+    "browseCategories": "Browse categories",
+    "browseHint": "Administrative texts and books",
+    "recent": "Recent documents",
+    "seeAll": "See all",
+    "noDocs": "No documents yet.",
+    "stats": {
+      "documents": "Documents",
+      "acts": "Administrative texts",
+      "books": "Personal books",
+      "trash": "In the trash"
+    }
+  },
+  "documents": {
+    "statut": {
+      "brouillon": "Draft",
+      "publie": "Published",
+      "corbeille": "Trash"
+    },
+    "title": "Documents",
+    "add": "Add a document",
+    "count_one": "{{count}} document",
+    "count_other": "{{count}} documents",
+    "empty": "No documents yet.",
+    "emptyHint": "Upload your first PDF to get started.",
+    "emptyFiltered": "No results",
+    "emptyFilteredHint": "Try widening or resetting your filters.",
+    "view": {
+      "label": "Display mode",
+      "tableau": "Table",
+      "cartes": "Cards"
+    },
+    "type": {
+      "texte_administratif": "Administrative text",
+      "livre_personnel": "Personal book"
+    },
+    "typeActe": {
+      "decret": "Decree",
+      "arrete": "Order",
+      "decision": "Decision"
+    },
+    "sort": {
+      "date_desc": "Newest first",
+      "date_asc": "Oldest first",
+      "titre_asc": "Title A → Z",
+      "titre_desc": "Title Z → A"
+    },
+    "columns": {
+      "title": "Title",
+      "category": "Category",
+      "date": "Date",
+      "status": "Status",
+      "version": "Version"
+    },
+    "filters": {
+      "label": "Document search",
+      "search": "Search",
+      "placeholder": "Title, author, act number…",
+      "type": "Type",
+      "category": "Category",
+      "domain": "Domain",
+      "from": "From",
+      "to": "To",
+      "sort": "Sort",
+      "apply": "Apply",
+      "reset": "Reset",
+      "all": "All",
+      "allF": "All"
+    },
+    "fields": {
+      "title": "Title",
+      "description": "Description",
+      "category": "Category",
+      "domain": "Domain",
+      "type": "Type",
+      "numeroActe": "Act number",
+      "typeActe": "Nature of the act",
+      "authority": "Issuing authority",
+      "signatureDate": "Signature date",
+      "author": "Author",
+      "publisher": "Publisher",
+      "isbn": "ISBN",
+      "file": "PDF file",
+      "addedOn": "Added on",
+      "size": "Size",
+      "hash": "SHA-256 fingerprint",
+      "activeVersion": "Active version"
+    },
+    "create": {
+      "title": "Add a document",
+      "subtitle": "Upload a PDF and fill in its metadata.",
+      "typeLabel": "Document type",
+      "typeHint": {
+        "texte_administratif": "Decree, order, decision…",
+        "livre_personnel": "A book from your library"
+      },
+      "general": "General information",
+      "actInfo": "Act information",
+      "bookInfo": "Book information",
+      "selectCategory": "Choose a category",
+      "noDomain": "No domain",
+      "selectTypeActe": "Choose the nature of the act",
+      "submit": "Save the document"
+    },
+    "edit": {
+      "title": "Edit metadata",
+      "typeFixed": "The type of a document cannot be changed.",
+      "submit": "Save changes"
+    },
+    "show": {
+      "download": "Download",
+      "edit": "Edit",
+      "versions": "Versions",
+      "delete": "Move to trash",
+      "metadata": "Information",
+      "history": "Version history",
+      "backToList": "Back to the list",
+      "inTrash": "This document is in the trash. It will be permanently deleted after {{days}} days."
+    },
+    "delete": {
+      "title": "Move to trash?",
+      "message": "\"{{titre}}\" will be moved to the trash. You can restore it for {{days}} days.",
+      "confirm": "Move to trash"
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "tabsLabel": "Administration sections",
+    "tabs": {
+      "overview": "Overview",
+      "users": "Users",
+      "categories": "Categories & domains",
+      "appearance": "Appearance",
+      "language": "Language",
+      "documents": "Documents & storage",
+      "security": "Security & compliance"
+    },
+    "overview": {
+      "users": "Users",
+      "documents": "Documents",
+      "trash": "In the trash",
+      "storage": "Storage used",
+      "storageHint": "All versions combined",
+      "recent": "Latest actions",
+      "purgeSoon_one": "{{count}} document will be permanently deleted within 7 days.",
+      "purgeSoon_other": "{{count}} documents will be permanently deleted within 7 days."
+    },
+    "users": {
+      "user": "User",
+      "role": "Role",
+      "lastLogin": "Last sign-in",
+      "never": "Never",
+      "export": "Export data",
+      "create": "Create an account",
+      "createTitle": "Create an account",
+      "createHint": "A link to set their password will be sent to this address.",
+      "searchPlaceholder": "Name or email address",
+      "allRoles": "All roles",
+      "selfRole": "You cannot change your own role.",
+      "confirmRoleTitle": "Change the role?",
+      "confirmRoleMessage": "{{name}}'s role will become \"{{role}}\"."
+    },
+    "appearance": {
+      "themeTitle": "Theme",
+      "themeDescription": "Appearance offered to users.",
+      "themeDefault": "Default theme",
+      "themeForce": "Enforce this theme for everyone",
+      "themeForceHint": "Hides the theme switch: no personal choice anymore.",
+      "color": "Accent colour",
+      "previewTitle": "Preview",
+      "previewText": "This is how buttons, badges and links look.",
+      "identityTitle": "Identity",
+      "appName": "Application name",
+      "logo": "Logo",
+      "noLogo": "No logo",
+      "logoChoose": "Choose a logo",
+      "logoRemove": "Remove",
+      "logoHint": "PNG, JPG or WebP, 1 MB maximum.",
+      "logoInvalid": "Invalid logo: PNG, JPG or WebP, 1 MB maximum.",
+      "bannerTitle": "Information banner",
+      "bannerDescription": "Message shown at the top of every page (maintenance, announcement).",
+      "bannerEnable": "Show the banner",
+      "bannerMessage": "Message"
+    },
+    "language": {
+      "title": "Languages",
+      "description": "Languages offered in the application.",
+      "available": "Available languages",
+      "default": "Default language",
+      "defaultHint": "Applied to visitors and to users without a preference."
+    },
+    "documents": {
+      "storageTitle": "Storage and trash",
+      "retention": "Trash retention (days)",
+      "retentionHint": "Delay before a document is permanently deleted.",
+      "uploadMax": "Maximum PDF size (MB)",
+      "uploadMaxHint": "Must stay below the server's PHP limits.",
+      "phpLimit": "Server PHP limit: {{limit}} MB.",
+      "duplicates": "Duplicate detection",
+      "duplicatesHint": "Behaviour when an identical PDF is already stored.",
+      "duplicatePolicy": {
+        "refuser": "Refuse the upload",
+        "proposer_fusion": "Offer to merge (coming soon)"
+      },
+      "displayTitle": "Default display",
+      "defaultView": "Documents list view",
+      "defaultPerPage": "Rows per page"
+    },
+    "security": {
+      "accessTitle": "Access",
+      "registration": "Registration open",
+      "registrationHint": "If disabled, only administrators create accounts.",
+      "privacyTitle": "Data and compliance",
+      "journalRetention": "Activity log retention (days)",
+      "journalRetentionHint": "Older entries are deleted automatically.",
+      "gdprReminder": "Every user can export or delete their data from their profile (GDPR)."
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong.",
+    "home": "Back to home",
+    "403": {
+      "title": "Access denied",
+      "message": "You are not allowed to access this page."
+    },
+    "404": {
+      "title": "Page not found",
+      "message": "The requested page does not exist or has been moved."
+    },
+    "500": {
+      "title": "Server error",
+      "message": "An unexpected error occurred. Please try again in a moment."
+    },
+    "503": {
+      "title": "Service unavailable",
+      "message": "The application is temporarily unavailable (maintenance)."
+    }
+  },
+  "roles": {
+    "utilisateur": "User",
+    "administrateur": "Administrator"
+  },
+  "dropzone": {
+    "prompt": "Drag a PDF here or",
+    "browse": "browse your files",
+    "constraint": "PDF only, {{max}} MB maximum",
+    "remove": "Remove the file",
+    "notPdf": "The file must be a PDF.",
+    "tooLarge": "The file exceeds {{max}} MB.",
+    "uploading": "Uploading… {{percent}}%"
+  },
+  "duplicate": {
+    "title": "This document already exists",
+    "message": "An identical file is already stored: \"{{titre}}\".",
+    "open": "Open the existing document"
+  },
+  "viewer": {
+    "page": "Page",
+    "of": "of {{total}}",
+    "prev": "Previous page",
+    "next": "Next page",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fit": "Fit to width",
+    "loading": "Loading the document…",
+    "error": "This PDF cannot be displayed.",
+    "openDirect": "Open in a new tab"
+  },
+  "versions": {
+    "title": "Versions of \"{{titre}}\"",
+    "upload": "Upload a new version",
+    "uploadHint": "The previous version is archived, never deleted.",
+    "submit": "Upload the version",
+    "number": "No.",
+    "date": "Uploaded on",
+    "size": "Size",
+    "active": "Active",
+    "archived": "Archived",
+    "view": "View",
+    "restore": "Restore",
+    "restoreTitle": "Restore version {{n}}?",
+    "restoreMessage": "This version will become the active version of the document.",
+    "confirmRestore": "Restore",
+    "back": "Back to the document"
+  },
+  "trash": {
+    "title": "Trash",
+    "empty": "The trash is empty.",
+    "deletedOn": "Deleted on",
+    "purge": "Permanent deletion",
+    "remaining_one": "in {{count}} day",
+    "remaining_other": "in {{count}} days",
+    "restore": "Restore",
+    "info": "Documents in the trash are permanently deleted after {{days}} days."
+  },
+  "categories": {
+    "title": "Categories and domains",
+    "subtitle": "How your documentation is organised.",
+    "newCategory": "New category",
+    "editCategory": "Edit category",
+    "newDomain": "New domain",
+    "editDomain": "Edit domain",
+    "addDomain": "Add a domain",
+    "noDomains": "No domains.",
+    "documentsCount_one": "{{count}} document",
+    "documentsCount_other": "{{count}} documents",
+    "notEmpty": "Cannot delete: this category contains documents.",
+    "domainNotEmpty": "Cannot delete: this domain contains documents.",
+    "empty": "No categories.",
+    "emptyHint": "An administrator must create categories first.",
+    "emptyHintAdmin": "Create your first category to organise your documents.",
+    "deleteTitle": "Delete this item?",
+    "deleteMessage": "\"{{name}}\" will be permanently deleted.",
+    "type": {
+      "administratif": "Administrative",
+      "personnel": "Personal"
+    },
+    "fields": {
+      "name": "Name",
+      "type": "Type",
+      "label": "Label",
+      "category": "Category"
+    }
+  },
+  "profile": {
+    "title": "My profile",
+    "avatar": {
+      "title": "Profile photo",
+      "choose": "Choose a photo",
+      "remove": "Remove",
+      "hint": "JPG, PNG or WebP, {{max}} MB maximum.",
+      "invalid": "Invalid image: JPG, PNG or WebP, {{max}} MB maximum."
+    },
+    "info": {
+      "title": "Information",
+      "description": "Your name and email address.",
+      "roles": "Role:"
+    },
+    "password": {
+      "title": "Password",
+      "description": "Choose a strong password that you do not use anywhere else.",
+      "current": "Current password",
+      "revoke": "Sign out my mobile devices",
+      "revokeHint": "Revokes every access token of the mobile app.",
+      "submit": "Change password"
+    },
+    "devices": {
+      "title": "Connected devices",
+      "description": "Mobile apps allowed to access your account.",
+      "empty": "No connected devices.",
+      "lastUsed": "Last used: {{date}}",
+      "neverUsed": "Never used",
+      "revoke": "Sign out",
+      "confirmTitle": "Sign out this device?",
+      "confirmMessage": "\"{{name}}\" will no longer have access to your account."
+    },
+    "data": {
+      "title": "My data",
+      "description": "Export or delete your personal data.",
+      "exportTitle": "Export my data",
+      "exportHint": "JSON file: profile, document metadata and activity log.",
+      "export": "Export",
+      "deleteTitle": "Delete my account",
+      "deleteHint": "Permanently deletes your account, documents and history.",
+      "delete": "Delete my account",
+      "confirmTitle": "Permanently delete your account?",
+      "confirmWarning": "This cannot be undone: all your documents, versions and files will be deleted.",
+      "lastAdmin": "You are the last administrator: appoint another one before deleting this account.",
+      "confirmPassword": "Confirm with your password"
+    }
+  },
+  "settings": {
+    "title": "Preferences",
+    "description": "Appearance and display, specific to your account.",
+    "themeForced": "The theme is set by the administrator.",
+    "perPage": "Rows per page",
+    "documentsView": "Documents view"
+  },
+  "journal": {
+    "title": "Activity log",
+    "empty": "No activity recorded.",
+    "columns": {
+      "date": "Date",
+      "action": "Action",
+      "document": "Document"
+    },
+    "filters": {
+      "action": "Action",
+      "allActions": "All actions",
+      "document": "Document no."
+    },
+    "actions": {
+      "connexion": "Sign-in",
+      "ajout": "Added",
+      "consultation": "Viewed",
+      "telechargement": "Downloaded",
+      "mise_a_jour": "Updated",
+      "suppression": "Deleted"
+    }
+  }
+}

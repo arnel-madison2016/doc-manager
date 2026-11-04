@@ -6,14 +6,20 @@ import './i18n';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ThemeProvider } from './theme/ThemeProvider';
+import ThemeProvider from './theme/ThemeProvider';
+import { route } from 'ziggy-js';
+
+// Rendre 'route' accessible globalement dans l'application
+window.route = route;
 
 createInertiaApp({
-    // Détermine le titre de la page basé sur le titre du composant
-    title: (title) => title ? `${title} - Herby-Garage` : 'Herby-Garage',
+    // Correction du titre de l'application pour GEDoc v2.0
+    title: (title) => title ? `${title} - GEDoc v2.0` : 'GEDoc v2.0',
 
+    // Correction du chemin des dossiers : './Pages/**/*.jsx' au lieu de './pages/**/*.jsx'
     resolve: (name) =>
-        resolvePageComponent(`./pages/${name}.jsx`, import.meta.glob('./pages/**/*.jsx')),
+        resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx')),
+        
     setup({ el, App, props }) {
         createRoot(el).render(
             <ThemeProvider initial={props.initialPage.props.preferences?.theme}>
@@ -22,8 +28,7 @@ createInertiaApp({
         );
     },
 
-    // Optionnel: Gère le chargement progressif des pages
     progress: {
-        color: '#4B5563', // Couleur de la barre de progression
+        color: '#4B5563',
     },
 });
